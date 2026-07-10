@@ -3,6 +3,7 @@ from typing import Dict
 from bs4 import BeautifulSoup
 import re
 
+
 KNOWN_BRANDS = {
     "paypal": {
         "keywords": ["paypal"],
@@ -29,6 +30,8 @@ KNOWN_BRANDS = {
         "domain": "netflix.com",
     },
 }
+
+
 URGENCY_PHRASES = [
     "urgent",
     "verify your account",
@@ -42,21 +45,32 @@ URGENCY_PHRASES = [
     "your account will be closed",
 ]
 
-#feature number 1
+
+# Feature 1
 def calculate_urgency_score(parsed_email: dict) -> dict:
     """Counts urgency-style phishing phrases in the email body."""
-    combined_text = (parsed_email.get("body_plain", "") + " " + parsed_email.get("body_html", "")).lower()
 
-    matched_phrases = [phrase for phrase in URGENCY_PHRASES if phrase in combined_text]
+    combined_text = (
+        parsed_email.get("body_plain", "")
+        + " "
+        + parsed_email.get("body_html", "")
+    ).lower()
+
+    matched_phrases = [
+        phrase for phrase in URGENCY_PHRASES
+        if phrase in combined_text
+    ]
 
     return {
         "urgency_score": len(matched_phrases),
         "matched_phrases": matched_phrases,
     }
 
-#feature number 2
+
+# Feature 2
 def reply_to_mismatch(from_header: str, reply_to_header: str) -> bool:
-    """Flags when Reply-To points to a different domain than the sender domain."""
+    """Flags when Reply-To domain differs from sender domain."""
+
     if not from_header or not reply_to_header:
         return False
 
@@ -64,48 +78,79 @@ def reply_to_mismatch(from_header: str, reply_to_header: str) -> bool:
         _, sender_email = parseaddr(from_header)
         _, reply_to_email = parseaddr(reply_to_header)
 
-        sender_domain = sender_email.split("@")[-1].lower() if "@" in sender_email else ""
-        reply_to_domain = reply_to_email.split("@")[-1].lower() if "@" in reply_to_email else ""
+        if "@" not in sender_email or "@" not in reply_to_email:
+            return False
 
-        return bool(sender_domain) and bool(reply_to_domain) and sender_domain != reply_to_domain
+        sender_domain = sender_email.split("@")[-1].lower()
+        reply_to_domain = reply_to_email.split("@")[-1].lower()
+
+        return sender_domain != reply_to_domain
 
     except Exception as e:
         print(f"Error checking reply-to mismatch: {e}")
         return False
-    
-#feature number 3
-def check_links(parsed_email: dict) -> tuple:
-    """Counts links and checks whether all of them use HTTPS."""
+
+
+# Feature 3
+def check_links(parsed_email: dict) -> dict:
+    """Counts links and checks HTTPS usage."""
+
     links = parsed_email.get("links", [])
 
     if not links:
-        return 0, True
+        return {
+            "link_count": 0,
+            "all_links_https": True
+        }
 
-    count = 0
-    all_https = True
+    all_https = all(
+        link.lower().startswith("https://")
+        for link in links
+    )
 
-    for link in links:
-        count += 1
-        if not link.startswith("https://"):
-            all_https = False
+    return {
+        "link_count": len(links),
+        "all_links_https": all_https
+    }
 
-    return count, all_https
 
-#feature number 4
+# Feature 4
 def check_attachments(parsed_email: dict) -> dict:
-    """Counts attachments and checks for suspicious file types."""
+    """Counts attachments and checks suspicious file types."""
+
     attachments = parsed_email.get("attachments", [])
-    suspicious_extensions = {".exe", ".bat", ".cmd", ".scr", ".js", ".vbs", ".jar"}
-    suspicious_attachments = [att for att in attachments if any(att.lower().endswith(ext) for ext in suspicious_extensions)]
+
+    suspicious_extensions = {
+        ".exe",
+        ".bat",
+        ".cmd",
+        ".scr",
+        ".js",
+        ".vbs",
+        ".jar"
+    }
+
+    suspicious_attachments = [
+        att
+        for att in attachments
+        if any(att.lower().endswith(ext)
+               for ext in suspicious_extensions)
+    ]
+
     return {
         "attachment_count": len(attachments),
-        "suspicious_attachments": suspicious_attachments
+        "suspicious_attachments": suspicious_attachments,
+        "suspicious_attachment_count": len(suspicious_attachments)
     }
-#feature number 5
-def sender_display_name_mismatch(sender_name: str, sender_domain: str) -> Dict:
+
+
+# Feature 5
+def sender_display_name_mismatch(
+        sender_name: str,
+        sender_domain: str
+) -> Dict:
     """
-    Detects whether the sender display name impersonates a well-known brand
-    while the sender's domain does not belong to that brand.
+    Detects brand impersonation through display name/domain mismatch.
     """
 
     if not sender_name or not sender_domain:
@@ -121,13 +166,16 @@ def sender_display_name_mismatch(sender_name: str, sender_domain: str) -> Dict:
 
     for brand, info in KNOWN_BRANDS.items():
 
-        if any(keyword in normalized_name for keyword in info["keywords"]):
+        if any(
+            keyword in normalized_name
+            for keyword in info["keywords"]
+        ):
 
             expected_domain = info["domain"]
 
             mismatch = not (
-                normalized_domain == expected_domain or
-                normalized_domain.endswith("." + expected_domain)
+                normalized_domain == expected_domain
+                or normalized_domain.endswith("." + expected_domain)
             )
 
             return {
@@ -143,72 +191,114 @@ def sender_display_name_mismatch(sender_name: str, sender_domain: str) -> Dict:
         "expected_domain": None,
         "actual_domain": normalized_domain,
     }
-#feature number 6
-URL_LIKE_PATTERN = re.compile(r"(https?://|www\.)[\w\-.]+", re.IGNORECASE)
+
+
+# Feature 6
+URL_LIKE_PATTERN = re.compile(
+    r"(https?://|www\.)[\w\-.]+",
+    re.IGNORECASE
+)
+
+
 def check_hidden_links(parsed_email: dict) -> dict:
-    """Flags links where the visible text looks like a URL but points
-    somewhere different from the actual href (a classic phishing trick)."""
+    """
+    Detects visible URLs that redirect to different domains.
+    """
+
     body_html = parsed_email.get("body_html", "")
+
     if not body_html:
-        return {"has_hidden_link_mismatch": False, "mismatched_links": []}
+        return {
+            "has_hidden_link_mismatch": False,
+            "mismatched_links": []
+        }
 
     soup = BeautifulSoup(body_html, "html.parser")
+
     mismatched_links = []
 
     for a_tag in soup.find_all("a", href=True):
+
         href = a_tag["href"].strip()
         visible_text = a_tag.get_text().strip()
 
-        if not visible_text or not href:
+        if not visible_text:
             continue
 
-        # Only worth checking if the visible text itself looks like a URL/domain
         if URL_LIKE_PATTERN.search(visible_text):
-            # Strip scheme for a simple domain comparison
-            visible_domain = re.sub(r"^https?://", "", visible_text, flags=re.IGNORECASE).split("/")[0].lower()
-            href_domain = re.sub(r"^https?://", "", href, flags=re.IGNORECASE).split("/")[0].lower()
+
+            visible_domain = re.sub(
+                r"^https?://",
+                "",
+                visible_text,
+                flags=re.IGNORECASE
+            ).split("/")[0].lower()
+
+            href_domain = re.sub(
+                r"^https?://",
+                "",
+                href,
+                flags=re.IGNORECASE
+            ).split("/")[0].lower()
 
             if visible_domain != href_domain:
-                mismatched_links.append({"visible_text": visible_text, "actual_href": href})
+                mismatched_links.append({
+                    "visible_text": visible_text,
+                    "actual_href": href
+                })
 
     return {
         "has_hidden_link_mismatch": len(mismatched_links) > 0,
-        "mismatched_links": mismatched_links,
+        "mismatched_links": mismatched_links
     }
 
-#observation extraction function
+
+# Observation extraction
 def extract_observations(parsed_email: dict) -> dict:
-    """Runs all Phase 2 feature checks and bundles them into one dict --
-    this is what gets handed to the agent as its initial context."""
+    """
+    Runs all feature checks and creates the observation object
+    passed to the ReAct agent.
+    """
 
     urgency = calculate_urgency_score(parsed_email)
 
+    headers = parsed_email.get("headers", {})
+
     reply_mismatch = reply_to_mismatch(
-        parsed_email["headers"].get("From"),
-        parsed_email["headers"].get("Reply-To"),
+        headers.get("From"),
+        headers.get("Reply-To")
     )
 
-    link_count, all_links_https = check_links(parsed_email)
+    links = check_links(parsed_email)
 
     attachments = check_attachments(parsed_email)
 
     display_name_check = sender_display_name_mismatch(
         parsed_email.get("sender_name"),
-        parsed_email.get("domain"),
+        parsed_email.get("domain")
     )
 
     hidden_links = check_hidden_links(parsed_email)
 
     return {
+
+        # urgency
         "urgency_score": urgency["urgency_score"],
         "matched_urgency_phrases": urgency["matched_phrases"],
+
+        # sender checks
         "reply_to_mismatch": reply_mismatch,
-        "link_count": link_count,
-        "all_links_https": all_links_https,
-        "attachment_count": attachments["attachment_count"],
-        "suspicious_attachment_count": attachments["suspicious_attachment_count"],
         "display_name_mismatch": display_name_check["mismatch"],
         "claimed_brand": display_name_check["claimed_brand"],
+
+        # links
+        "link_count": links["link_count"],
+        "all_links_https": links["all_links_https"],
         "hidden_link_mismatch": hidden_links["has_hidden_link_mismatch"],
         "mismatched_links": hidden_links["mismatched_links"],
+
+        # attachments
+        "attachment_count": attachments["attachment_count"],
+        "suspicious_attachment_count": attachments["suspicious_attachment_count"],
+        "suspicious_attachments": attachments["suspicious_attachments"],
     }

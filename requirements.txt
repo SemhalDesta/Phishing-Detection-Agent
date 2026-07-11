@@ -1,0 +1,15 @@
+#Gmail API (Phase 1) 
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+
+#Email parsing (Phase 1)
+beautifulsoup4
+
+#Tools (Phase 3)
+python-whois
+requests
+langchain-core
+
+#Config (Phase 3)
+python-dotenv

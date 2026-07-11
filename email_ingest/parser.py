@@ -13,7 +13,7 @@ def parse_email(raw_message) -> email.message.Message:
 
 
 
-def extract_sender_info(from_header: str):
+def extract_sender_info(from_header)-> tuple:
     """
     Extract the sender's display name, email address, and domain
     from a Gmail 'From' header.

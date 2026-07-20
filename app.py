@@ -2,7 +2,6 @@ from email_ingest.gmail_listener import (
     get_gmail_services,
     fetch_unread_message_ids,
     download_raw_message,
-    
 )
 from email_ingest.parser import (extract_body_and_links, parse_email)
 from email_ingest.parser import parse_raw_email

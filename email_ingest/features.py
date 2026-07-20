@@ -302,3 +302,25 @@ def extract_observations(parsed_email: dict) -> dict:
         "suspicious_attachment_count": attachments["suspicious_attachment_count"],
         "suspicious_attachments": attachments["suspicious_attachments"],
     }
+
+def build_email_context(parsed_email: dict, observations: dict) -> str:
+    """Formats the parsed email and Phase 2 observations into the text
+    the agent sees as its first message."""
+    return f"""New email to investigate:
+
+Sender: {parsed_email['sender_email']} (display name: "{parsed_email['sender_name']}")
+Sender domain: {parsed_email['domain']}
+Subject: {parsed_email['subject']}
+Reply-To: {parsed_email['headers'].get('Reply-To', '(none)')}
+
+Initial observations:
+- Urgency score: {observations['urgency_score']} (matched phrases: {observations['matched_urgency_phrases']})
+- Reply-To mismatch: {observations['reply_to_mismatch']}
+- Display name mismatch: {observations['display_name_mismatch']} (claimed brand: {observations['claimed_brand']})
+- Link count: {observations['link_count']} (all HTTPS: {observations['all_links_https']})
+- Hidden link mismatch: {observations['hidden_link_mismatch']} (details: {observations['mismatched_links']})
+- Attachment count: {observations['attachment_count']} (suspicious: {observations['suspicious_attachment_count']}, names: {observations['suspicious_attachments']})
+
+Body (plain text, truncated):
+{parsed_email['body_plain'][:500]}
+"""

@@ -4,16 +4,13 @@ from email_ingest.gmail_listener import (
     download_raw_message,
     
 )
-<<<<<<< Updated upstream
 from email_ingest.parser import (extract_body_and_links, parse_email)
-=======
 from email_ingest.parser import parse_raw_email
 from email_ingest.features import extract_observations, build_email_context
 from agent.react_agent import run_agent
 from response.actions import apply_decision, get_or_create_label_id
 
 
->>>>>>> Stashed changes
 
 service, creds = get_gmail_services()
 
@@ -22,7 +19,6 @@ print(ids)
 
 if ids:
     raw = download_raw_message(service, ids[0])
-<<<<<<< Updated upstream
     print(raw[:300])
     msg = parse_email(raw)
     print("From:", msg.get("From"))
@@ -31,7 +27,6 @@ if ids:
     result = extract_body_and_links(msg)
     print(result["links"])
     print(result["attachments"])
-=======
     parsed = parse_raw_email(raw, ids[0])
 
     print("Sender:", parsed["sender_email"])
@@ -52,4 +47,3 @@ label_id = get_or_create_label_id(service, "QUARANTINE")
 print(label_id)
 
 apply_decision(service,  ids[0], agent_result["classification"])
->>>>>>> Stashed changes

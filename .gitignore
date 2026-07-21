@@ -1,6 +1,24 @@
+# Python
 __pycache__/
 *.pyc
-token.json
-credentials.json
-*.db
+*.pyo
+venv/
+env/
+*.egg-info/
+
+# Secrets / credentials -- never commit these
 .env
+credentials.json
+token.json
+
+# Database (regenerated locally, shouldn't be shared/tracked)
+database/logs.db
+*.db
+
+# IDE/editor clutter
+.vscode/
+.idea/
+
+# OS clutter
+.DS_Store
+Thumbs.db

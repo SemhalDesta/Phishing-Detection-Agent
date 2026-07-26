@@ -13,3 +13,6 @@ langchain-core
 
 #Config (Phase 3)
 python-dotenv
+
+#Database (Phase 6)
+sqlalchemy

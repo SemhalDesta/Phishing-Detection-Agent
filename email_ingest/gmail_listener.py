@@ -5,6 +5,8 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
+from response.actions import get_or_create_label_id
+
 
 SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]# the scope of access the app requires the user. it could be readonly which prevetns the app from modifying anything
 
@@ -36,15 +38,18 @@ def get_gmail_services()-> tuple:
     service = build("gmail", "v1", credentials=creds)
     return service, creds
 
-#Getting the unread message ids from the user's gmail inbox
-def fetch_unread_message_ids(service, max_results=10)-> list:
-    """Fetches the IDs of unread messages in the user's Gmail inbox."""
+def fetch_unread_message_ids(service, max_results=10):
+    """Fetches unread inbox messages that the agent hasn't already processed."""
     try:
-        # Call the Gmail API to fetch unread messages
         results = (
             service.users()
             .messages()
-            .list(userId="me", labelIds=["INBOX", "UNREAD"], maxResults=max_results)
+            .list(
+                userId="me",
+                labelIds=["INBOX", "UNREAD"],
+                q="-label:AGENT_PROCESSED",
+                maxResults=max_results,
+            )
             .execute()
         )
         messages = results.get("messages", [])
@@ -69,13 +74,15 @@ def download_raw_message(service, message_id) -> bytes:
         print(f"An error occurred while downloading the message: {e}")
         return None
 
-def mark_as_read(service, message_id):
-    """Marks a Gmail message as read by removing the 'UNREAD' label."""
+def mark_as_processed(service, message_id):
+    """Tags a message as agent-processed, without touching its read status --
+    the human's own read/unread state stays exactly as they left it."""
     try:
+        label_id = get_or_create_label_id(service, "AGENT_PROCESSED")
         service.users().messages().modify(
-            userId="me", id=message_id, body={"removeLabelIds": ["UNREAD"]}
+            userId="me", id=message_id, body={"addLabelIds": [label_id]}
         ).execute()
-        print(f"Message {message_id} marked as read.")
+        print(f"Message {message_id} tagged as processed.")
     except Exception as e:
-        print(f"An error occurred while marking the message as read: {e}")
+        print(f"An error occurred while tagging the message as processed: {e}")
 

@@ -18,20 +18,25 @@ def get_or_create_label_id(service, label_name: str) -> str:
     return created_label["id"]
 
 
-def apply_decision(service, message_id: str, decision: str) -> str:
-    """Moves the email to the appropriate label based on the agent's classification."""
+def apply_decision(service, message_id: str, decision: str, confidence: float) -> str:
+    """Moves the email based on classification AND confidence. low-confidence
+    phishing calls get routed to review"""
     decision_key = decision.lower()
-    label_name = DECISION_TO_LABEL.get(decision_key)
 
-    if label_name is None:
+    if decision_key == "safe":
         return "No action taken (classified safe)."
 
-    label_id = get_or_create_label_id(service, label_name)
+    if decision_key == "phishing" and confidence >= 85:
+        label_name = "QUARANTINE"
+    else:
+        # suspicious, OR phishing-but-low-confidence -- stay visible for review
+        label_name = "REVIEW"
 
+    label_id = get_or_create_label_id(service, label_name)
     service.users().messages().modify(
         userId="me",
         id=message_id,
         body={"addLabelIds": [label_id], "removeLabelIds": ["INBOX"]},
     ).execute()
 
-    return f"Moved message to {label_name}."
+    return f"Moved message to {label_name} (confidence: {confidence})."

@@ -1,0 +1,45 @@
+From: Brian Fahrlander <kilroy@kamakiriad.com>
+Subject: Re: Apt repository authentication: it's time
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+On Wed, 9 Oct 2002 11:03:11 +0200, Matthias Saou <matthias@rpmforge.net> wrot=
+e:
+
+> I don't think gpg signing my repositories will help anything, as it will
+> just ensure that my passphrase was typed to confirm the md5 signatures of
+> all pgklists and srclists. Basically, you'll then just be sure that it's me
+> who generated the files, and this will of course prevent automating the
+> process of updating the apt repository when Red Hat updates show up.
+
+    Isn't there a packager-key that's concealed inside the rpm?  Things have =
+changed a bit since I used to work with'em, but I thought there was some inte=
+rnal number that must be compared to be correct (or, presumably, return an er=
+ror.)
+=20
+> In Red Hat Linux 8.0 though, the warnings about "No Key" appear until you
+> import the right gpg public keys directly with rpm, for example :
+> rpm --import /usr/share/doc/apt-0.5.4cnc7/RPM-GPG-KEY
+> (this will import my key, which is used to sign all freshrpms.net packages)
+
+    Hey, cool; wether it protects me or not, I feel better about it.
+=20
+> Hopefully it is possible to the tell rpm to install *only* packages who
+> verify against an imported gpg key? This for me would be the optimal way to
+> ensure integrity with the way things curently work.
+
+    Yeah, surely there's a flag for that; there is, for everything else, aye?=
+  :)
+
+------------------------------------------------------------------------
+Brian Fahrlnder              Linux Zealot, Conservative, and Technomad
+Evansville, IN                    My Voyage: http://www.CounterMoon.com
+ICQ  5119262
+------------------------------------------------------------------------
+angegangen, Schlange-Hften, sein es ganz rber jetzt. Bgel innen fest,
+weil es eine lange, ssse Fahrt ist.=20
+
+_______________________________________________
+RPM-List mailing list <RPM-List@freshrpms.net>
+http://lists.freshrpms.net/mailman/listinfo/rpm-list

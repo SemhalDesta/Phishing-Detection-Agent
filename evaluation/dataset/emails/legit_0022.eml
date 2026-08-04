@@ -1,0 +1,572 @@
+From: Christoph Cordes <uiaregi@clamav.net>
+Subject: [clamav-virusdb] Update (daily: 5748)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+ClamAV database updated (09 Feb 2008 01-08 +0000): daily.cvd
+Version: 5748
+
+Submission-ID: 2354430
+Sender: Virus Total
+Added: Trojan.Spy-21485
+Virus name alias: Trojan.PWS.OnlineGames.NYJ (Bitdefender)
+
+Submission-ID: 2434816
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Downloader-22605
+Added: No
+
+Submission-ID: 2434824
+Sender: Brazilian CERT
+Submission notes: Already detected as Trojan.Downloader-22224
+Added: No
+Virus name alias: Trojan.Agent.Delf.FV (Bitdefender)
+
+Submission-ID: 2434826
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2417748
+Added: No
+
+Submission-ID: 2434827
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2410473
+Added: No
+
+Submission-ID: 2434828
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2474459
+Added: No
+
+Submission-ID: 2434830
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2482437
+Added: No
+
+Submission-ID: 2434838
+Sender: Virus Total
+Submission notes: Already detected as Trojan.DNSChanger-2586
+Added: No
+Virus name alias: Trojan.DNSChanger.BX (Bitdefender)
+
+Submission-ID: 2434861
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2417748
+Added: No
+
+Submission-ID: 2434867
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2118091
+Added: No
+
+Submission-ID: 2434875
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2457677
+Added: No
+
+Submission-ID: 2434889
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Agent-12620
+Added: No
+Virus name alias: Backdoor.Bifrose.ZVN (Bitdefender)
+
+Submission-ID: 2434890
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Bancos-8353
+Added: No
+
+Submission-ID: 2434908
+Sender: Virus Total
+Submission notes: Already detected as Trojan.DNSChanger-2617
+Added: No
+Virus name alias: Trojan.Peed.Gen (Bitdefender)
+
+Submission-ID: 2434909
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Magania-390
+Added: No
+Virus name alias: Packer.Malware.NSAnti.K (Bitdefender)
+
+Submission-ID: 2434920
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2409848
+Added: No
+
+Submission-ID: 2434925
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2379643
+Added: No
+
+Submission-ID: 2434927
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2379867
+Added: No
+
+Submission-ID: 2434931
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2424256
+Added: No
+
+Submission-ID: 2434933
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2460297
+Added: No
+
+Submission-ID: 2434939
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2516349
+Added: No
+
+Submission-ID: 2434941
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Spy-23199
+Added: No
+
+Submission-ID: 2434945
+Sender: Jotti
+Submission notes: Already detected as Trojan.Zlob-1248
+Added: No
+Virus name alias: Trojan.Zlob.CBN (Bitdefender)
+
+Submission-ID: 2434947
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2400283
+Added: No
+
+Submission-ID: 2434948
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2516349
+Added: No
+
+Submission-ID: 2434955
+Sender: VirScan.org
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2434980
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2418472
+Added: No
+
+Submission-ID: 2434986
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Delf-3068
+Added: No
+Virus name alias: Trojan.Delf.RB (Bitdefender)
+
+Submission-ID: 2435006
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Downloader-22483
+Added: No
+
+Submission-ID: 2435007
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2516195
+Added: No
+
+Submission-ID: 2435008
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2435282
+Added: No
+
+Submission-ID: 2435010
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Spy-23340
+Added: No
+Virus name alias: Dropped:Trojan.PWS.OnLineGames.OOP (Bitdefender)
+
+Submission-ID: 2435011
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Agent-12215
+Added: No
+Virus name alias: Dropped:Backdoor.Agent.ZCI (Bitdefender)
+
+Submission-ID: 2435018
+Sender: Jotti
+Submission notes: Same as in Submission-ID 2417748
+Added: No
+
+Submission-ID: 2435023
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2482437
+Added: No
+
+Submission-ID: 2435024
+Sender: Jotti
+Submission notes: Already detected as Trojan.Agent-12938
+Added: No
+Virus name alias: Packer.Malware.FriCryptor.B (Bitdefender)
+
+Submission-ID: 2435026
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Agent-12384
+Added: No
+Virus name alias: BehavesLike:Win32.ProcessHijack (Bitdefender)
+
+Submission-ID: 2435034
+Sender: VirScan.org
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435038
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2482442
+Added: No
+
+Submission-ID: 2435040
+Sender: VirScan.org
+Submission notes: Same as in Submission-ID 2471879
+Added: No
+
+Submission-ID: 2435043
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2419970
+Added: No
+
+Submission-ID: 2435052
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2379867
+Added: No
+
+Submission-ID: 2435063
+Sender: Virus Total
+Submission notes: Already detected as Trojan.PcClient-640
+Added: No
+Virus name alias: Trojan.Dropper.ROH (Bitdefender)
+
+Submission-ID: 2435068
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2457677
+Added: No
+
+Submission-ID: 2435072
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2215589
+Added: No
+
+Submission-ID: 2435073
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2433022
+Added: No
+
+Submission-ID: 2435076
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Spy-23364
+Added: No
+Virus name alias: Trojan.PWS.OnlineGames.NZG (Bitdefender)
+
+Submission-ID: 2435081
+Sender: Jotti
+Submission notes: Already detected as Trojan.Zlob-1148
+Added: No
+Virus name alias: Trojan.Peed.IUC (Bitdefender)
+
+Submission-ID: 2435089
+Sender: VirScan.org
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435092
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Bancos-8257
+Added: No
+Virus name alias: Generic.Banker.Delf.F31D24D6 (Bitdefender)
+
+Submission-ID: 2435094
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Hupigon-6884
+Added: No
+
+Submission-ID: 2435097
+Sender: VirScan.org
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435104
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435108
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2057956
+Added: No
+
+Submission-ID: 2435110
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Agent-12184
+Added: No
+Virus name alias: DeepScan:Generic.Malware.SE!g.36F19A78 (Bitdefender)
+
+Submission-ID: 2435115
+Sender: Jotti
+Submission notes: Already detected as Trojan.Downloader-22210
+Added: No
+Virus name alias: Trojan.Downloader.Delf.OHS (Bitdefender)
+
+Submission-ID: 2435116
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Hupigon-7152
+Added: No
+
+Submission-ID: 2435117
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2420046
+Added: No
+
+Submission-ID: 2435120
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2457677
+Added: No
+
+Submission-ID: 2435125
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2420712
+Added: No
+
+Submission-ID: 2435139
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2446022
+Added: No
+
+Submission-ID: 2435140
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Downloader-21941
+Added: No
+Virus name alias: Generic.Dld.Alpha.F31417AF (Bitdefender)
+
+Submission-ID: 2435142
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2401973
+Added: No
+
+Submission-ID: 2435150
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2419970
+Added: No
+
+Submission-ID: 2435151
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2419970
+Added: No
+
+Submission-ID: 2435152
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2435010
+Added: No
+
+Submission-ID: 2435154
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435155
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435164
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2417748
+Added: No
+
+Submission-ID: 2435167
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Spy-23337
+Added: No
+Virus name alias: Trojan.PWS.OnlineGames.NZG (Bitdefender)
+
+Submission-ID: 2435169
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2442493
+Added: No
+
+Submission-ID: 2435173
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2401973
+Added: No
+
+Submission-ID: 2435175
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Downloader-21970
+Added: No
+Virus name alias: Generic.Drop.Alpha.C6BF56D6 (Bitdefender)
+
+Submission-ID: 2435178
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2424256
+Added: No
+
+Submission-ID: 2435180
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2446022
+Added: No
+
+Submission-ID: 2435181
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2357560
+Added: No
+
+Submission-ID: 2435183
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2431358
+Added: No
+
+Submission-ID: 2435188
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2400283
+Added: No
+
+Submission-ID: 2435190
+Sender: Virus Total
+Submission notes: Already detected as Trojan.PcClient-583
+Added: No
+
+Submission-ID: 2435191
+Sender: VirScan.org
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435193
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435197
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Downloader-22031
+Added: No
+
+Submission-ID: 2435202
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2482442
+Added: No
+
+Submission-ID: 2435203
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2131864
+Added: No
+
+Submission-ID: 2435204
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435206
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2388287
+Added: No
+
+Submission-ID: 2435165
+Sender: Levin
+Submission notes: Same as in Submission-ID 2436229
+Added: No
+
+Submission-ID: 2435272
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Spy-23370
+Added: No
+Virus name alias: Trojan.PWS.OnlineGames.NZG (Bitdefender)
+
+Submission-ID: 2435275
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435276
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Bancos-8268
+Added: No
+Virus name alias: Trojan.Spy.Banker.ANV (Bitdefender)
+
+Submission-ID: 2435278
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435282
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Spy-22888
+Added: No
+Virus name alias: Trojan.PWS.OnLineGames.NSR (Bitdefender)
+
+Submission-ID: 2435288
+Sender: Jotti
+Submission notes: Same as in Submission-ID 2459866
+Added: No
+
+Submission-ID: 2435295
+Sender: VirScan.org
+Submission notes: Same as in Submission-ID 2436842
+Added: No
+
+Submission-ID: 2435298
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2357560
+Added: No
+
+Submission-ID: 2435307
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2357560
+Added: No
+
+Submission-ID: 2435321
+Sender: VirScan.org
+Submission notes: Same as in Submission-ID 2520262
+Added: No
+
+Submission-ID: 2435323
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2468790
+Added: No
+
+Submission-ID: 2435328
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2401973
+Added: No
+
+Submission-ID: 2435331
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2482996
+Added: No
+
+Submission-ID: 2435336
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2399446
+Added: No
+
+Submission-ID: 2435341
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2482996
+Added: No
+
+Submission-ID: 2435344
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2424256
+Added: No
+
+Submission-ID: 2435345
+Sender: Virus Total
+Submission notes: Same as in Submission-ID 2462652
+Added: No
+
+Submission-ID: 2435346
+Sender: Virus Total
+Submission notes: Already detected as Trojan.Spy-22853
+Added: No
+Virus name alias: DeepScan:Generic.PWS.Games.1.1ABBDB2A (Bitdefender)
+
+Submission-ID: n/a
+Sender: n/a
+Added: Trojan.Flux
+Added: Trojan.Downloader-23091
+Added: Trojan.Bzub-331
+
+-- 
+Best regards,
+  Christoph 
+
+_______________________________________________
+http://lists.clamav.net/cgi-bin/mailman/listinfo/clamav-virusdb
+
+

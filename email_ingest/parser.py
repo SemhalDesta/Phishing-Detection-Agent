@@ -1,12 +1,13 @@
 import email
+from email.message import Message
 from email.utils import parseaddr
 from bs4 import BeautifulSoup
-
+from email import policy
 
 def parse_email(raw_message) -> email.message.Message:
     """Parses a raw email message into an email.message.Message object."""
     try:
-        return email.message_from_bytes(raw_message)
+        return email.message_from_bytes(raw_message, policy=policy.default)
     except Exception as e:
         print(f"An error occurred while parsing the email: {e}")
         return None

@@ -1,0 +1,22 @@
+From: jerry gay <jerry.gay@gmail.com>
+Subject: Re: JSON won't make test
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+On 4/9/07, Klaas-Jan Stol  wrote:
+> hi,
+>
+> attached a patch that changes the file json.in. Currently, when doing
+> nmake test, it won't work (windows), as the changing to the test
+> directory and calling prove is separated by a ';'. This patch changes it
+> in &&.
+>
+> I send this as a patch, because I don't know if it works for other
+> systems (but I think it does).
+> (Just to prevent breaking things)
+>
+this is the syntax we use everywhere else.
+the patch looks good, commit away.
+~jerry
+

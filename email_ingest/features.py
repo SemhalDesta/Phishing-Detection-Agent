@@ -120,15 +120,7 @@ def check_attachments(parsed_email: dict) -> dict:
 
     attachments = parsed_email.get("attachments", [])
 
-    suspicious_extensions = {
-        ".exe",
-        ".bat",
-        ".cmd",
-        ".scr",
-        ".js",
-        ".vbs",
-        ".jar"
-    }
+    suspicious_extensions = {".exe", ".bat", ".cmd", ".scr", ".js", ".vbs", ".jar", ".zip", ".rar", ".7z", ".iso"}
 
     suspicious_attachments = [
         att

@@ -131,7 +131,7 @@ def parse_final_answer(text) -> dict:
 
 
 def run_agent(email_context: str) -> dict:
-    """Entry point: give the agent an email's context (Phase 2 observations
+    """Entry point: give the agent an email's context (observations
     plus basic sender/subject info), get back a decision plus the full
     reasoning trace for logging."""
     graph = build_graph()

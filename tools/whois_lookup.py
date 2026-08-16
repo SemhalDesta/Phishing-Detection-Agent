@@ -23,7 +23,6 @@ def check_domain_age(domain: str) -> str:
             return f"No WHOIS creation date found for {domain}."
 
         # Normalize to timezone-naive, since some registrars return aware
-        # datetimes and datetime.now() is naive -- mixing the two raises
         if creation_date.tzinfo is not None:
             creation_date = creation_date.replace(tzinfo=None)
 

@@ -7,8 +7,13 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 import pandas as pd
 import streamlit as st
 
-from config import DATABASE_URL
+from config import DATABASE_URL, DEMO_DATABASE_URL, DEMO_MODE
 from database.models import get_session, EmailLog, ReasoningTrace
+
+
+active_db_url = DEMO_DATABASE_URL if DEMO_MODE else DATABASE_URL
+
+
 
 
 def format_tool_calls(action_input_str: str) -> str:
@@ -31,7 +36,7 @@ def format_tool_calls(action_input_str: str) -> str:
 st.set_page_config(page_title="Phishing Agent Dashboard", layout="wide")
 st.title("Phishing Detection Agent — Monitoring Dashboard")
 
-session_factory = get_session(DATABASE_URL)
+session_factory = get_session(active_db_url)
 session = session_factory()
 
 emails = session.query(EmailLog).order_by(EmailLog.created_at.desc()).all()

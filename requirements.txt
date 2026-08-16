@@ -1,21 +1,31 @@
-#Gmail API (Phase 1) 
+#Gmail API
 google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
 
-#Email parsing (Phase 1)
+#Email parsing  
 beautifulsoup4
 
-#Tools (Phase 3)
-python-whois
-requests
+#Agent framework  
+langgraph
+langchain-anthropic
 langchain-core
 
-#Config (Phase 3)
+#Tools  
+python-whois
+requests
+
+#Config
 python-dotenv
 
-#Database (Phase 6)
+#Database
 sqlalchemy
 
-#frontend
+#Data handling (evaluation scripts)  
+pandas
+
+#Frontend  
 streamlit
+
+#Testing  
+pytest

@@ -10,7 +10,7 @@ database for a review which is also visible in a Streamlit monitoring dashboard 
 
 1. **Ingestion**: polls Gmail via the Gmail API for new unread inbox mail
 2. **Parsing**: extracts the sender, domain, links, attachments, and headers from the raw email content
-3. **Feature extraction**: computes local observations on the features that it extracted in the previous step (urgency language, display-name mismatch, link/HTTPS status, hidden-link mismatch, attachment risk, reply-to mismatch)
+3. **Feature extraction**: it extracts features such as urgency language, display-name mismatch, link/HTTPS status, hidden-link mismatch, attachment risk, reply-to mismatch  from the email by using the deconstructed components of the email in the previous step.
 4. **Reasoning**: a LangGraph-based ReAct loop reasons over these observations and adaptively calls external tools (WHOIS domain age, VirusTotal reputation, SPF/DKIM verification) only when needed
 5. **Decision & response**: classifies as Safe or Suspicious or Phishing with a confidence score; confidently-flagged phishing is quarantined, ambiguous cases are routed to review, safe email is left in the inbox
 6. **Logging**: every step of the reasoning trace is persisted to SQLite, queryable and viewable via the dashboard

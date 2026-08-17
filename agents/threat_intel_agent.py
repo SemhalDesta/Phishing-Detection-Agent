@@ -15,15 +15,16 @@ from langgraph.graph.message import add_messages
 from config import GOOGLE_API_KEY, LLM_MODEL, MAX_REACT_STEPS
 from tools.whois_lookup import check_domain_age
 from tools.virus_total import check_domain_reputation
-from tools.header_check import check_spf_dkim
+from tools.header_check import check_spf_dkim, check_dmarc
 
-TOOLS = [check_domain_age, check_domain_reputation, check_spf_dkim]
+
+TOOLS = [check_domain_age, check_domain_reputation, check_spf_dkim, check_dmarc]
 TOOLS_BY_NAME = {t.name: t for t in TOOLS}
 
 THREAT_INTEL_PROMPT = """You are the Threat Intelligence Agent in a multi-agent \
 phishing detection system. Your job is to investigate the sender's domain \
 using external verification tools -- domain age (WHOIS), domain reputation \
-(VirusTotal), and email authentication (SPF/DKIM).
+(VirusTotal), and email authentication (SPF/DKIM and DMARC).
 
 Only call a tool if it's likely to add real evidence -- for example, skip \
 WHOIS if the domain is obviously a major, long-established company. Reason \

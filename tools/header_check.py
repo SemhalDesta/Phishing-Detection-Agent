@@ -26,3 +26,25 @@ def check_spf_dkim(authentication_results_header: str) -> str:
     dkim_result = dkim_match.group(1) if dkim_match else "not found"
 
     return f"SPF: {spf_result}, DKIM: {dkim_result}"
+
+@tool
+def check_dmarc(authentication_results_header: str) -> str:
+    """Check the DMARC authentication result for this email.
+
+    DMARC builds on SPF/DKIM by verifying domain alignment and applying the
+    sending domain's own policy (reject/quarantine/none) for failures. Use
+    this alongside SPF/DKIM to assess whether the sending domain enforces
+    strict authentication.
+
+    Args:
+        authentication_results_header: the raw value of the email's
+            "Authentication-Results" header.
+    """
+    if not authentication_results_header:
+        return "No Authentication-Results header found."
+
+    header_lower = authentication_results_header.lower()
+    dmarc_match = re.search(r"dmarc=(\w+)", header_lower)
+    dmarc_result = dmarc_match.group(1) if dmarc_match else "not found"
+
+    return f"DMARC: {dmarc_result}"
